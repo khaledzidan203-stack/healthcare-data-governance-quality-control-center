@@ -2,28 +2,52 @@ table _Measures
 	lineageTag: c6fa8f14-3eb5-4028-a415-910b494d308f
 
 	measure 'Profile Count' = COUNTROWS ( FactCarrierProfile )
+		formatString: #,##0
+		displayFolder: "01 Core KPIs"
 
 	measure 'Represented Line Items' = SUM ( FactCarrierProfile[LineItemCount] )
+		formatString: #,##0
+		displayFolder: "01 Core KPIs"
 
 	measure 'Represented Service Units' = SUM ( FactCarrierProfile[RepresentedServiceUnits] )
+		formatString: #,##0
+		displayFolder: "01 Core KPIs"
 
 	measure 'Represented Rounded Medicare Payment' = SUM ( FactCarrierProfile[RepresentedRoundedMedicarePayment] )
+		formatString: #,##0.00
+		displayFolder: "01 Core KPIs"
 
 	measure 'Avg Service Units per Represented Line' = DIVIDE ( [Represented Service Units], [Represented Line Items] )
+		formatString: 0.000000
+		displayFolder: "01 Core KPIs"
 
 	measure 'Avg Rounded Payment per Represented Line' = DIVIDE ( [Represented Rounded Medicare Payment], [Represented Line Items] )
+		formatString: 0.000000
+		displayFolder: "01 Core KPIs"
 
 	measure 'Blank ICD Profiles' = CALCULATE ( [Profile Count], FactCarrierProfile[IsBlankICD] = TRUE () )
+		formatString: #,##0
+		displayFolder: "02 Blank ICD Quality"
 
 	measure 'Blank ICD Represented Lines' = CALCULATE ( [Represented Line Items], FactCarrierProfile[IsBlankICD] = TRUE () )
+		formatString: #,##0
+		displayFolder: "02 Blank ICD Quality"
 
 	measure 'Blank ICD Line Rate' = DIVIDE ( [Blank ICD Represented Lines], [Represented Line Items] )
+		formatString: 0.000000%
+		displayFolder: "02 Blank ICD Quality"
 
 	measure 'Zero-Service Profiles' = CALCULATE ( [Profile Count], FactCarrierProfile[IsZeroServiceCount] = TRUE () )
+		formatString: #,##0
+		displayFolder: "03 Zero-Service Quality"
 
 	measure 'Zero-Service Represented Lines' = CALCULATE ( [Represented Line Items], FactCarrierProfile[IsZeroServiceCount] = TRUE () )
+		formatString: #,##0
+		displayFolder: "03 Zero-Service Quality"
 
 	measure 'Zero-Service Line Rate' = DIVIDE ( [Zero-Service Represented Lines], [Represented Line Items] )
+		formatString: 0.000000%
+		displayFolder: "03 Zero-Service Quality"
 
 	column Placeholder
 		dataType: string
@@ -39,4 +63,3 @@ table _Measures
 					Source = #table(type table [Placeholder = text], {})
 				in
 					Source
-
