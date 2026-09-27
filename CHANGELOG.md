@@ -63,3 +63,11 @@
 - Defined weighted service and rounded-payment metrics.
 - Defined DQ profile and represented-line metrics.
 - Explicitly blocked unsupported time-series and national extrapolation claims.
+
+
+## CP9 - Python EDA & Independent Validation
+
+- Added independent Python validation against the governed SQL model.
+- Recalculated critical KPIs without using the SQL KPI baseline view.
+- Reconciled weighted demographic and Data Quality metrics.
+- Added reproducible Python validation code.

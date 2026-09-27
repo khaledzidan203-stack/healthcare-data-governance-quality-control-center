@@ -36,3 +36,17 @@ Status: PASS
 - Ratio metrics use ratio-of-totals.
 - Profile Count and represented line-item volume remain distinct.
 - Unsupported time-series metrics explicitly excluded.
+
+
+## CP9 - Python EDA & Independent Validation
+
+Status: PASS
+
+- Python independently recalculated the governed KPI baseline.
+- Profile Count reconciled exactly.
+- Represented Line Items reconciled exactly.
+- Represented Service Units reconciled exactly.
+- Represented Rounded Medicare Payment reconciled exactly.
+- DQ counts reconciled exactly.
+- Weighted demographic totals reconciled exactly.
+- No unsupported time-series, causal or national extrapolation analysis performed.
