@@ -30,3 +30,12 @@
 - DQ rules executed against the complete source.
 - Result: 16 PASS, 2 WARN, 1 SOURCE_CONFLICT, 0 FAIL.
 - Raw data remained unchanged.
+
+## CP5 - Governed SQL Foundation
+
+- Created governed SQL Server database foundation.
+- Implemented RAW, STAGING, ANALYTICS and GOVERNANCE schemas.
+- Loaded 2,801,660 CMS source profiles.
+- Built typed STAGING layer with DQ flags.
+- Reconciled 70,052,393 represented line items.
+- Validated exact profile uniqueness in SQL.
