@@ -1,7 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
   "pageOrder": [
-    "c82ca7e72ea060e788e6"
+    "c82ca7e72ea060e788e6",
+    "p_exec_overview",
+    "p_data_quality",
+    "p_coding_quality",
+    "p_service_payment",
+    "p_demographic_provider",
+    "p_quality_monitor"
   ],
   "activePageName": "c82ca7e72ea060e788e6"
 }
