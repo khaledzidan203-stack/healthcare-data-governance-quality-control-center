@@ -1,0 +1,76 @@
+﻿-- ==========================================================
+-- GOVERNED POWER BI MEASURES
+-- Table name expected in semantic model:
+-- FactCarrierProfile
+-- ==========================================================
+
+Profile Count =
+COUNTROWS ( FactCarrierProfile )
+
+
+Represented Line Items =
+SUM ( FactCarrierProfile[LineItemCount] )
+
+
+Represented Service Units =
+SUM ( FactCarrierProfile[RepresentedServiceUnits] )
+
+
+Represented Rounded Medicare Payment =
+SUM ( FactCarrierProfile[RepresentedRoundedMedicarePayment] )
+
+
+Avg Service Units per Represented Line =
+DIVIDE (
+    [Represented Service Units],
+    [Represented Line Items]
+)
+
+
+Avg Rounded Payment per Represented Line =
+DIVIDE (
+    [Represented Rounded Medicare Payment],
+    [Represented Line Items]
+)
+
+
+Blank ICD Profiles =
+CALCULATE (
+    [Profile Count],
+    FactCarrierProfile[IsBlankICD] = TRUE ()
+)
+
+
+Blank ICD Represented Lines =
+CALCULATE (
+    [Represented Line Items],
+    FactCarrierProfile[IsBlankICD] = TRUE ()
+)
+
+
+Blank ICD Line Rate =
+DIVIDE (
+    [Blank ICD Represented Lines],
+    [Represented Line Items]
+)
+
+
+Zero-Service Profiles =
+CALCULATE (
+    [Profile Count],
+    FactCarrierProfile[IsZeroServiceCount] = TRUE ()
+)
+
+
+Zero-Service Represented Lines =
+CALCULATE (
+    [Represented Line Items],
+    FactCarrierProfile[IsZeroServiceCount] = TRUE ()
+)
+
+
+Zero-Service Line Rate =
+DIVIDE (
+    [Zero-Service Represented Lines],
+    [Represented Line Items]
+)

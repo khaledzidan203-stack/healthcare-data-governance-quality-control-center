@@ -89,3 +89,11 @@
 - Defined refresh and security inheritance rules.
 - Preserved DQ flags in the BI consumption layer.
 - Documented the 2010 source-grain time-intelligence restriction.
+
+## CP12-B - Semantic Model Foundation
+
+- Added analytics.vw_PBI_FactCarrierProfile.
+- Added additive weighted semantic columns.
+- Defined eight one-to-many single-direction relationships.
+- Added 12 governed DAX measure definitions.
+- Defined Power BI storage, summarization and date-model rules.

@@ -73,3 +73,17 @@ Status: PASS
 - Allowed aggregations documented.
 - Unsupported time intelligence explicitly prohibited.
 - BI KPI baseline linked to the approved SQL/Python validation architecture.
+
+## CP12-B - Semantic Model Foundation
+
+Status: PASS
+
+- Power BI semantic fact view created.
+- 2,801,660 profiles reconciled.
+- 70,052,393 represented line items reconciled.
+- 105,487,211 represented service units reconciled.
+- 3,842,966,475.00 represented rounded Medicare payment reconciled.
+- Eight-dimension star-schema contract defined.
+- Twelve governed DAX measures prepared.
+- Import mode selected.
+- No fabricated Date table permitted.
