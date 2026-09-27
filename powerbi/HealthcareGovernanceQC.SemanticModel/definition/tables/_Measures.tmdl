@@ -1,0 +1,18 @@
+table _Measures
+	lineageTag: c6fa8f14-3eb5-4028-a415-910b494d308f
+
+	column Placeholder
+		dataType: string
+		isHidden
+		lineageTag: 6ae2ca83-c477-4665-8342-28ff1230c4db
+		summarizeBy: none
+		sourceColumn: Placeholder
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+					Source = #table(type table [Placeholder = text], {})
+				in
+					Source
+

@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["FactCarrierProfile","DimSex","DimAgeCategory","DimICD9","DimHCPCS","DimBETOS","DimProviderType","DimServiceType","DimPlaceOfService"]
+annotation PBI_QueryOrder = ["FactCarrierProfile","DimSex","DimAgeCategory","DimICD9","DimHCPCS","DimBETOS","DimProviderType","DimServiceType","DimPlaceOfService","_Measures"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -22,6 +22,7 @@ ref table DimBETOS
 ref table DimProviderType
 ref table DimServiceType
 ref table DimPlaceOfService
+ref table _Measures
 
 ref cultureInfo en-US
 
