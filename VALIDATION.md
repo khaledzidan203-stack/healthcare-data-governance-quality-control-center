@@ -13,3 +13,15 @@ Status: PASS
 - Zero-service profiles preserved: 22
 - RAW source modified: No
 - Governance Source Registry and Load Run tracking implemented.
+
+## CP7 - Canonical Analytical Model
+
+Status: PASS
+
+- Fact rows: 2,801,660
+- Represented line items: 70,052,393
+- Broken foreign keys: 0
+- Blank ICD profiles preserved: 502
+- Zero-service profiles preserved: 22
+- All dimension cardinalities reconciled.
+- Weighted demographic totals reconciled to source baseline.
