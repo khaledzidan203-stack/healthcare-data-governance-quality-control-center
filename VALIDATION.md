@@ -25,3 +25,14 @@ Status: PASS
 - Zero-service profiles preserved: 22
 - All dimension cardinalities reconciled.
 - Weighted demographic totals reconciled to source baseline.
+
+## CP8 - KPI & Metric Contracts
+
+Status: PASS
+
+- 12 governed metric contracts defined.
+- SQL KPI baseline view created.
+- Weighted service/payment logic uses LineItemCount.
+- Ratio metrics use ratio-of-totals.
+- Profile Count and represented line-item volume remain distinct.
+- Unsupported time-series metrics explicitly excluded.

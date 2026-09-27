@@ -55,3 +55,11 @@
 - Preserved source DQ flags and lineage.
 - Validated zero broken foreign keys.
 - Reconciled fact totals and dimension cardinalities.
+
+## CP8 - KPI & Metric Contracts
+
+- Created 12 governed KPI/metric contracts.
+- Added SQL baseline view analytics.vw_CarrierKPIBaseline.
+- Defined weighted service and rounded-payment metrics.
+- Defined DQ profile and represented-line metrics.
+- Explicitly blocked unsupported time-series and national extrapolation claims.
