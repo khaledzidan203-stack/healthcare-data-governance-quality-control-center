@@ -1,32 +1,32 @@
 relationship AutoDetected_12925ba9-9f9b-4858-aff6-82469dfd3377
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.SexKey
-	toColumn: 'analytics DimSex'.SexKey
+	fromColumn: FactCarrierProfile.SexKey
+	toColumn: DimSex.SexKey
 
 relationship AutoDetected_99b973fe-e834-4e41-88d4-363402feb221
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.AgeCategoryKey
-	toColumn: 'analytics DimAgeCategory'.AgeCategoryKey
+	fromColumn: FactCarrierProfile.AgeCategoryKey
+	toColumn: DimAgeCategory.AgeCategoryKey
 
 relationship AutoDetected_a291ba12-aadb-4ba1-9b47-36667ef57d4a
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.ICD9Key
-	toColumn: 'analytics DimICD9'.ICD9Key
+	fromColumn: FactCarrierProfile.ICD9Key
+	toColumn: DimICD9.ICD9Key
 
 relationship AutoDetected_22c59dbe-0cd3-480c-8eb5-0e0d7be667d3
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.HCPCSKey
-	toColumn: 'analytics DimHCPCS'.HCPCSKey
+	fromColumn: FactCarrierProfile.HCPCSKey
+	toColumn: DimHCPCS.HCPCSKey
 
 relationship AutoDetected_e0de4a7d-fc63-4470-93e5-931ada005874
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.BETOSKey
-	toColumn: 'analytics DimBETOS'.BETOSKey
+	fromColumn: FactCarrierProfile.BETOSKey
+	toColumn: DimBETOS.BETOSKey
 
 relationship AutoDetected_f245a1d8-cbae-457e-8cb0-ba19f81f6052
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.ProviderTypeKey
-	toColumn: 'analytics DimProviderType'.ProviderTypeKey
+	fromColumn: FactCarrierProfile.ProviderTypeKey
+	toColumn: DimProviderType.ProviderTypeKey
 
 relationship AutoDetected_79b64c8b-b5c4-4c7c-a523-bc9b9e3be614
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.ServiceTypeKey
-	toColumn: 'analytics DimServiceType'.ServiceTypeKey
+	fromColumn: FactCarrierProfile.ServiceTypeKey
+	toColumn: DimServiceType.ServiceTypeKey
 
 relationship AutoDetected_e6744540-2352-4755-820c-d5e00c5786fc
-	fromColumn: 'analytics vw_PBI_FactCarrierProfile'.PlaceOfServiceKey
-	toColumn: 'analytics DimPlaceOfService'.PlaceOfServiceKey
+	fromColumn: FactCarrierProfile.PlaceOfServiceKey
+	toColumn: DimPlaceOfService.PlaceOfServiceKey
 

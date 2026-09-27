@@ -1,8 +1,9 @@
-table 'analytics DimBETOS'
+table DimBETOS
 	lineageTag: 556e0b27-1658-424c-90f3-18ca690ac8e9
 
 	column BETOSKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 4afc5bb8-8648-47bf-a8e5-caed73e6b7c5
 		summarizeBy: none
@@ -18,7 +19,7 @@ table 'analytics DimBETOS'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimBETOS' = m
+	partition DimBETOS = m
 		mode: import
 		source =
 				let

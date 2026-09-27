@@ -1,8 +1,9 @@
-table 'analytics DimHCPCS'
+table DimHCPCS
 	lineageTag: 4a928c47-83ac-4528-b94d-83d088312438
 
 	column HCPCSKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 65656c56-faf3-4a00-9544-fc409e249d6a
 		summarizeBy: none
@@ -18,7 +19,7 @@ table 'analytics DimHCPCS'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimHCPCS' = m
+	partition DimHCPCS = m
 		mode: import
 		source =
 				let

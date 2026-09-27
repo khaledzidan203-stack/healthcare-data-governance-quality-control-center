@@ -1,8 +1,9 @@
-table 'analytics DimAgeCategory'
+table DimAgeCategory
 	lineageTag: ba3f5ce0-cde3-4218-b1a7-b5a5bc073bce
 
 	column AgeCategoryKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 1d78e410-749a-47e0-88d0-eda2f9ac045c
 		summarizeBy: none
@@ -29,6 +30,7 @@ table 'analytics DimAgeCategory'
 
 	column SortOrder
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c64353e8-4523-4323-9cb4-7c24f370a8cc
 		summarizeBy: none
@@ -36,7 +38,7 @@ table 'analytics DimAgeCategory'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimAgeCategory' = m
+	partition DimAgeCategory = m
 		mode: import
 		source =
 				let

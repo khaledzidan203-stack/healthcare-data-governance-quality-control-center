@@ -1,8 +1,9 @@
-table 'analytics DimICD9'
+table DimICD9
 	lineageTag: 97d05247-1308-40f5-8781-7a676af1400f
 
 	column ICD9Key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: be1d4166-7350-40fe-b624-8b263b5aa04e
 		summarizeBy: none
@@ -27,7 +28,7 @@ table 'analytics DimICD9'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimICD9' = m
+	partition DimICD9 = m
 		mode: import
 		source =
 				let

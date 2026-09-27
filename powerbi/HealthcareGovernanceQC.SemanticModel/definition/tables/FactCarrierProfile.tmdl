@@ -1,17 +1,19 @@
-table 'analytics vw_PBI_FactCarrierProfile'
+table FactCarrierProfile
 	lineageTag: 0dbdcee8-c3ac-4ee7-b7d5-263ad8974036
 
 	column ProfileKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a816a55b-0696-42f6-be8e-c466dc16421e
-		summarizeBy: count
+		summarizeBy: none
 		sourceColumn: ProfileKey
 
 		annotation SummarizationSetBy = Automatic
 
 	column SexKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 1fbb3532-983f-4ffb-a779-56c255f57fd7
 		summarizeBy: none
@@ -21,6 +23,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column AgeCategoryKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 890641af-b7b7-41f5-bc20-7093f552c1b1
 		summarizeBy: none
@@ -30,6 +33,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column ICD9Key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 8f65c51f-799a-43a1-b1d7-51da9a2f1b20
 		summarizeBy: none
@@ -39,6 +43,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column HCPCSKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 97b7745e-3a1c-44b4-8cae-ed2b1d3e2a39
 		summarizeBy: none
@@ -48,6 +53,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column BETOSKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 9bc1449e-eedd-49d0-92e6-38d5ec8539ad
 		summarizeBy: none
@@ -57,6 +63,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column ProviderTypeKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 0d391b2d-7a6c-447f-bba7-3021cc91e064
 		summarizeBy: none
@@ -66,6 +73,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column ServiceTypeKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: db469bc0-08ff-4302-b131-28da29cc945a
 		summarizeBy: none
@@ -75,6 +83,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column PlaceOfServiceKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 93ada0ff-96c3-4d97-a86f-8453ccaeeac1
 		summarizeBy: none
@@ -84,17 +93,19 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 	column ServiceCount
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: d3172553-152b-438c-a52d-2dfb84f99c0f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: ServiceCount
 
 		annotation SummarizationSetBy = Automatic
 
 	column MedicarePaymentAmount
 		dataType: double
+		isHidden
 		lineageTag: 07e8e8ff-e445-431b-98e9-c8603fc3eaeb
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: MedicarePaymentAmount
 
 		annotation SummarizationSetBy = Automatic
@@ -147,7 +158,7 @@ table 'analytics vw_PBI_FactCarrierProfile'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics vw_PBI_FactCarrierProfile' = m
+	partition FactCarrierProfile = m
 		mode: import
 		source =
 				let

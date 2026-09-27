@@ -1,8 +1,9 @@
-table 'analytics DimSex'
+table DimSex
 	lineageTag: 680b88e4-9d17-4ffc-be61-6371f6730f3f
 
 	column SexKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: a35afa84-e8b5-4f3f-9b04-d398adbd7fec
 		summarizeBy: none
@@ -27,7 +28,7 @@ table 'analytics DimSex'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimSex' = m
+	partition DimSex = m
 		mode: import
 		source =
 				let

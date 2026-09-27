@@ -7,21 +7,21 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation __PBI_TimeIntelligenceEnabled = 1
+annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["analytics vw_PBI_FactCarrierProfile","analytics DimSex","analytics DimAgeCategory","analytics DimICD9","analytics DimHCPCS","analytics DimBETOS","analytics DimProviderType","analytics DimServiceType","analytics DimPlaceOfService"]
+annotation PBI_QueryOrder = ["FactCarrierProfile","DimSex","DimAgeCategory","DimICD9","DimHCPCS","DimBETOS","DimProviderType","DimServiceType","DimPlaceOfService"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table 'analytics vw_PBI_FactCarrierProfile'
-ref table 'analytics DimSex'
-ref table 'analytics DimAgeCategory'
-ref table 'analytics DimICD9'
-ref table 'analytics DimHCPCS'
-ref table 'analytics DimBETOS'
-ref table 'analytics DimProviderType'
-ref table 'analytics DimServiceType'
-ref table 'analytics DimPlaceOfService'
+ref table FactCarrierProfile
+ref table DimSex
+ref table DimAgeCategory
+ref table DimICD9
+ref table DimHCPCS
+ref table DimBETOS
+ref table DimProviderType
+ref table DimServiceType
+ref table DimPlaceOfService
 
 ref cultureInfo en-US
 

@@ -1,8 +1,9 @@
-table 'analytics DimPlaceOfService'
+table DimPlaceOfService
 	lineageTag: 2d527584-f699-4351-a0e1-d94ea1e8a1ad
 
 	column PlaceOfServiceKey
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: df12d3de-fd72-440f-b3f6-dd4c8696c5a7
 		summarizeBy: none
@@ -18,7 +19,7 @@ table 'analytics DimPlaceOfService'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'analytics DimPlaceOfService' = m
+	partition DimPlaceOfService = m
 		mode: import
 		source =
 				let
