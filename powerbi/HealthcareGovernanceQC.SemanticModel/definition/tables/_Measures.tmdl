@@ -1,6 +1,30 @@
 table _Measures
 	lineageTag: c6fa8f14-3eb5-4028-a415-910b494d308f
 
+	measure 'Profile Count' = COUNTROWS ( FactCarrierProfile )
+
+	measure 'Represented Line Items' = SUM ( FactCarrierProfile[LineItemCount] )
+
+	measure 'Represented Service Units' = SUM ( FactCarrierProfile[RepresentedServiceUnits] )
+
+	measure 'Represented Rounded Medicare Payment' = SUM ( FactCarrierProfile[RepresentedRoundedMedicarePayment] )
+
+	measure 'Avg Service Units per Represented Line' = DIVIDE ( [Represented Service Units], [Represented Line Items] )
+
+	measure 'Avg Rounded Payment per Represented Line' = DIVIDE ( [Represented Rounded Medicare Payment], [Represented Line Items] )
+
+	measure 'Blank ICD Profiles' = CALCULATE ( [Profile Count], FactCarrierProfile[IsBlankICD] = TRUE () )
+
+	measure 'Blank ICD Represented Lines' = CALCULATE ( [Represented Line Items], FactCarrierProfile[IsBlankICD] = TRUE () )
+
+	measure 'Blank ICD Line Rate' = DIVIDE ( [Blank ICD Represented Lines], [Represented Line Items] )
+
+	measure 'Zero-Service Profiles' = CALCULATE ( [Profile Count], FactCarrierProfile[IsZeroServiceCount] = TRUE () )
+
+	measure 'Zero-Service Represented Lines' = CALCULATE ( [Represented Line Items], FactCarrierProfile[IsZeroServiceCount] = TRUE () )
+
+	measure 'Zero-Service Line Rate' = DIVIDE ( [Zero-Service Represented Lines], [Represented Line Items] )
+
 	column Placeholder
 		dataType: string
 		isHidden
