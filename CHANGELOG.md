@@ -23,3 +23,10 @@
 - Open controls preserved explicitly.
 - No unsupported compliance claims made.
 - Raw data remained unchanged.
+
+## CP4 - Data Quality Rule Framework
+
+- 19 governed DQ rules defined across 6 dimensions.
+- DQ rules executed against the complete source.
+- Result: 16 PASS, 2 WARN, 1 SOURCE_CONFLICT, 0 FAIL.
+- Raw data remained unchanged.
