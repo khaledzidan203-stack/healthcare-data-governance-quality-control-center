@@ -8,3 +8,7 @@ __pycache__/
 .vscode/
 
 !requirements.txt
+# Power BI local/cache artifacts
+**/.pbi/cache.abf
+**/.pbi/localSettings.json
+**/*.abf

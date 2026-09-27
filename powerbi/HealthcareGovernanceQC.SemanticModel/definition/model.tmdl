@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["analytics vw_PBI_FactCarrierProfile","analytics DimSex","analytics DimAgeCategory","analytics DimICD9","analytics DimHCPCS","analytics DimBETOS","analytics DimProviderType","analytics DimServiceType","analytics DimPlaceOfService"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'analytics vw_PBI_FactCarrierProfile'
+ref table 'analytics DimSex'
+ref table 'analytics DimAgeCategory'
+ref table 'analytics DimICD9'
+ref table 'analytics DimHCPCS'
+ref table 'analytics DimBETOS'
+ref table 'analytics DimProviderType'
+ref table 'analytics DimServiceType'
+ref table 'analytics DimPlaceOfService'
+
+ref cultureInfo en-US
+

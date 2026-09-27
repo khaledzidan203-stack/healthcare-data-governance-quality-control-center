@@ -1,0 +1,40 @@
+table 'analytics DimICD9'
+	lineageTag: 97d05247-1308-40f5-8781-7a676af1400f
+
+	column ICD9Key
+		dataType: int64
+		formatString: 0
+		lineageTag: be1d4166-7350-40fe-b624-8b263b5aa04e
+		summarizeBy: none
+		sourceColumn: ICD9Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ICD9Code
+		dataType: string
+		lineageTag: 02993775-e6d2-4362-87d2-1e36c625201a
+		summarizeBy: none
+		sourceColumn: ICD9Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBlankSourceValue
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 32894810-c6f4-490d-b06c-f75a5948dd4c
+		summarizeBy: none
+		sourceColumn: IsBlankSourceValue
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimICD9' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimICD9 = Source{[Schema="analytics",Item="DimICD9"]}[Data]
+				in
+				    analytics_DimICD9
+
+	annotation PBI_ResultType = Table
+

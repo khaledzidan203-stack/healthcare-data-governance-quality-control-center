@@ -1,0 +1,49 @@
+table 'analytics DimAgeCategory'
+	lineageTag: ba3f5ce0-cde3-4218-b1a7-b5a5bc073bce
+
+	column AgeCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d78e410-749a-47e0-88d0-eda2f9ac045c
+		summarizeBy: none
+		sourceColumn: AgeCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeCategoryCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 9348fe0a-a18f-4b5e-9936-378b51f950fb
+		summarizeBy: none
+		sourceColumn: AgeCategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeCategoryLabel
+		dataType: string
+		lineageTag: 9acd033c-d967-4127-a257-731a68771588
+		summarizeBy: none
+		sourceColumn: AgeCategoryLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: c64353e8-4523-4323-9cb4-7c24f370a8cc
+		summarizeBy: none
+		sourceColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimAgeCategory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimAgeCategory = Source{[Schema="analytics",Item="DimAgeCategory"]}[Data]
+				in
+				    analytics_DimAgeCategory
+
+	annotation PBI_ResultType = Table
+

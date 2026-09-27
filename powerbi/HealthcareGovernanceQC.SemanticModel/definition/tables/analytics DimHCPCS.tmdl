@@ -1,0 +1,31 @@
+table 'analytics DimHCPCS'
+	lineageTag: 4a928c47-83ac-4528-b94d-83d088312438
+
+	column HCPCSKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 65656c56-faf3-4a00-9544-fc409e249d6a
+		summarizeBy: none
+		sourceColumn: HCPCSKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column HCPCSCode
+		dataType: string
+		lineageTag: 0e2d52bd-0442-4b06-9506-fd44c4a2cccf
+		summarizeBy: none
+		sourceColumn: HCPCSCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimHCPCS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimHCPCS = Source{[Schema="analytics",Item="DimHCPCS"]}[Data]
+				in
+				    analytics_DimHCPCS
+
+	annotation PBI_ResultType = Table
+

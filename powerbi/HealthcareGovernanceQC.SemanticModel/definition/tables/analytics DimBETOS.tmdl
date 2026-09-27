@@ -1,0 +1,31 @@
+table 'analytics DimBETOS'
+	lineageTag: 556e0b27-1658-424c-90f3-18ca690ac8e9
+
+	column BETOSKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4afc5bb8-8648-47bf-a8e5-caed73e6b7c5
+		summarizeBy: none
+		sourceColumn: BETOSKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BETOSCode
+		dataType: string
+		lineageTag: 459bc376-b3b8-468c-8cac-e3c727832f05
+		summarizeBy: none
+		sourceColumn: BETOSCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimBETOS' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimBETOS = Source{[Schema="analytics",Item="DimBETOS"]}[Data]
+				in
+				    analytics_DimBETOS
+
+	annotation PBI_ResultType = Table
+

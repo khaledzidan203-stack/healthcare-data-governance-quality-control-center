@@ -1,0 +1,40 @@
+table 'analytics DimSex'
+	lineageTag: 680b88e4-9d17-4ffc-be61-6371f6730f3f
+
+	column SexKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a35afa84-e8b5-4f3f-9b04-d398adbd7fec
+		summarizeBy: none
+		sourceColumn: SexKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SexCode
+		dataType: int64
+		formatString: 0
+		lineageTag: a065f6bd-bfaf-42c8-99d3-1dbb8dea8e16
+		summarizeBy: none
+		sourceColumn: SexCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column SexLabel
+		dataType: string
+		lineageTag: d7f470e9-113d-4516-a040-ac3bb34616ef
+		summarizeBy: none
+		sourceColumn: SexLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimSex' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimSex = Source{[Schema="analytics",Item="DimSex"]}[Data]
+				in
+				    analytics_DimSex
+
+	annotation PBI_ResultType = Table
+

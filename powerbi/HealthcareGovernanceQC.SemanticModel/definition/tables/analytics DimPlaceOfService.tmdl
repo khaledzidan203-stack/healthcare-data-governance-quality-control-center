@@ -1,0 +1,31 @@
+table 'analytics DimPlaceOfService'
+	lineageTag: 2d527584-f699-4351-a0e1-d94ea1e8a1ad
+
+	column PlaceOfServiceKey
+		dataType: int64
+		formatString: 0
+		lineageTag: df12d3de-fd72-440f-b3f6-dd4c8696c5a7
+		summarizeBy: none
+		sourceColumn: PlaceOfServiceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlaceOfServiceCode
+		dataType: string
+		lineageTag: b2028073-6258-4526-ad5c-9ac99c19dbd7
+		summarizeBy: none
+		sourceColumn: PlaceOfServiceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimPlaceOfService' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimPlaceOfService = Source{[Schema="analytics",Item="DimPlaceOfService"]}[Data]
+				in
+				    analytics_DimPlaceOfService
+
+	annotation PBI_ResultType = Table
+

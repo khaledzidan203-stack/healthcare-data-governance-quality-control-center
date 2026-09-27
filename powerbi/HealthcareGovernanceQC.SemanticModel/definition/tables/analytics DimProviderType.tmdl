@@ -1,0 +1,31 @@
+table 'analytics DimProviderType'
+	lineageTag: 31e49553-324c-41bd-9134-c0f0da6c3f2c
+
+	column ProviderTypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d2a6d0c-8d62-4c2f-8710-6a2a2fb7e913
+		summarizeBy: none
+		sourceColumn: ProviderTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProviderTypeCode
+		dataType: string
+		lineageTag: a1abd94f-3091-4bee-84a2-183f65c3f777
+		summarizeBy: none
+		sourceColumn: ProviderTypeCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics DimProviderType' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_DimProviderType = Source{[Schema="analytics",Item="DimProviderType"]}[Data]
+				in
+				    analytics_DimProviderType
+
+	annotation PBI_ResultType = Table
+

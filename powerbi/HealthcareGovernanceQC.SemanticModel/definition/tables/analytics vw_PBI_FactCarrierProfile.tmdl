@@ -1,0 +1,160 @@
+table 'analytics vw_PBI_FactCarrierProfile'
+	lineageTag: 0dbdcee8-c3ac-4ee7-b7d5-263ad8974036
+
+	column ProfileKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a816a55b-0696-42f6-be8e-c466dc16421e
+		summarizeBy: count
+		sourceColumn: ProfileKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SexKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fbb3532-983f-4ffb-a779-56c255f57fd7
+		summarizeBy: none
+		sourceColumn: SexKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AgeCategoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 890641af-b7b7-41f5-bc20-7093f552c1b1
+		summarizeBy: none
+		sourceColumn: AgeCategoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ICD9Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f65c51f-799a-43a1-b1d7-51da9a2f1b20
+		summarizeBy: none
+		sourceColumn: ICD9Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column HCPCSKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 97b7745e-3a1c-44b4-8cae-ed2b1d3e2a39
+		summarizeBy: none
+		sourceColumn: HCPCSKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column BETOSKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bc1449e-eedd-49d0-92e6-38d5ec8539ad
+		summarizeBy: none
+		sourceColumn: BETOSKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProviderTypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d391b2d-7a6c-447f-bba7-3021cc91e064
+		summarizeBy: none
+		sourceColumn: ProviderTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceTypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: db469bc0-08ff-4302-b131-28da29cc945a
+		summarizeBy: none
+		sourceColumn: ServiceTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlaceOfServiceKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 93ada0ff-96c3-4d97-a86f-8453ccaeeac1
+		summarizeBy: none
+		sourceColumn: PlaceOfServiceKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceCount
+		dataType: int64
+		formatString: 0
+		lineageTag: d3172553-152b-438c-a52d-2dfb84f99c0f
+		summarizeBy: sum
+		sourceColumn: ServiceCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedicarePaymentAmount
+		dataType: double
+		lineageTag: 07e8e8ff-e445-431b-98e9-c8603fc3eaeb
+		summarizeBy: sum
+		sourceColumn: MedicarePaymentAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LineItemCount
+		dataType: int64
+		formatString: 0
+		lineageTag: aa6c4233-32ed-47f4-bc00-d131e304cef7
+		summarizeBy: sum
+		sourceColumn: LineItemCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepresentedServiceUnits
+		dataType: int64
+		formatString: 0
+		lineageTag: dd72d76c-005b-441f-bc83-9a153378fdd7
+		summarizeBy: sum
+		sourceColumn: RepresentedServiceUnits
+
+		annotation SummarizationSetBy = Automatic
+
+	column RepresentedRoundedMedicarePayment
+		dataType: double
+		lineageTag: 2576cfac-0b64-4d64-86ef-a946c95e679f
+		summarizeBy: sum
+		sourceColumn: RepresentedRoundedMedicarePayment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsBlankICD
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fbb349be-ed1a-40cb-a321-1eada9f3ed12
+		summarizeBy: none
+		sourceColumn: IsBlankICD
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsZeroServiceCount
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 05f6b08b-8fa7-4ac6-be1f-00d6a7f24b4b
+		summarizeBy: none
+		sourceColumn: IsZeroServiceCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'analytics vw_PBI_FactCarrierProfile' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("localhost", "HealthcareGovernanceQC"),
+				    analytics_vw_PBI_FactCarrierProfile = Source{[Schema="analytics",Item="vw_PBI_FactCarrierProfile"]}[Data]
+				in
+				    analytics_vw_PBI_FactCarrierProfile
+
+	annotation PBI_ResultType = Table
+
