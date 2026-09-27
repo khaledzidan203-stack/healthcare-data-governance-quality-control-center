@@ -15,3 +15,11 @@
 - Source SHA-256 revalidated.
 - Header contract validated.
 - Raw data remained unchanged.
+
+## CP3 - Governance-by-Design
+
+- Governance Control Register created.
+- 15 governance controls assessed.
+- Open controls preserved explicitly.
+- No unsupported compliance claims made.
+- Raw data remained unchanged.
