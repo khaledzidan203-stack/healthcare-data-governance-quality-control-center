@@ -80,3 +80,12 @@
 - Added analytical dimension/fact lineage.
 - Added KPI-level field lineage.
 - Validated full source traceability for all governed KPI contracts.
+
+## CP11 - BI Consumption Contract
+
+- Added analytics.vw_BI_CarrierProfile.
+- Defined BI grain, key, labels and units.
+- Defined allowed and prohibited aggregations.
+- Defined refresh and security inheritance rules.
+- Preserved DQ flags in the BI consumption layer.
+- Documented the 2010 source-grain time-intelligence restriction.

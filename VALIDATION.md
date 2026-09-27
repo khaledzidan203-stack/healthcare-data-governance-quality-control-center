@@ -60,3 +60,16 @@ Status: PASS
 - Source -> RAW -> STAGING -> ANALYTICS -> KPI documented.
 - KPI contracts with full source traceability: 12 / 12.
 - Source SHA-256 retained as lineage evidence.
+
+## CP11 - BI Consumption Contract
+
+Status: PASS
+
+- BI consumption view created.
+- Grain validated at 2,801,660 unique profiles.
+- Represented line-item baseline reconciled to 70,052,393.
+- Required fields validated for unexpected nulls.
+- Governed DQ populations preserved.
+- Allowed aggregations documented.
+- Unsupported time intelligence explicitly prohibited.
+- BI KPI baseline linked to the approved SQL/Python validation architecture.
