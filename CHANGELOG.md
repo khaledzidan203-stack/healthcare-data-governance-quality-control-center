@@ -71,3 +71,12 @@
 - Recalculated critical KPIs without using the SQL KPI baseline view.
 - Reconciled weighted demographic and Data Quality metrics.
 - Added reproducible Python validation code.
+
+## CP10 - Data Lineage
+
+- Added governance.DataLineage registry.
+- Added source-to-RAW lineage.
+- Added RAW-to-STAGING transformation lineage.
+- Added analytical dimension/fact lineage.
+- Added KPI-level field lineage.
+- Validated full source traceability for all governed KPI contracts.

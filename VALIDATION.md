@@ -50,3 +50,13 @@ Status: PASS
 - DQ counts reconciled exactly.
 - Weighted demographic totals reconciled exactly.
 - No unsupported time-series, causal or national extrapolation analysis performed.
+
+## CP10 - Data Lineage
+
+Status: PASS
+
+- Governance lineage registry created.
+- Total lineage edges: 68.
+- Source -> RAW -> STAGING -> ANALYTICS -> KPI documented.
+- KPI contracts with full source traceability: 12 / 12.
+- Source SHA-256 retained as lineage evidence.
