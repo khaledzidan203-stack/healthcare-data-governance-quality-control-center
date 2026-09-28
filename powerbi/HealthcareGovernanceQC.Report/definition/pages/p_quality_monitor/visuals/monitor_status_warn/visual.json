@@ -1,33 +1,45 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "hdr_page_title",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "monitor_status_warn",
   "position": {
-    "x": 250,
-    "y": 28,
-    "z": 10,
-    "height": 70,
-    "width": 1100,
-    "tabOrder": 0
+    "width": 280,
+    "y": 217,
+    "z": 33,
+    "x": 656,
+    "tabOrder": 23,
+    "height": 84
   },
   "visual": {
-    "visualType": "textbox",
     "objects": {
       "general": [
         {
           "properties": {
             "paragraphs": [
               {
+                "horizontalTextAlignment": "center",
                 "textRuns": [
                   {
-                    "value": "Quality Issues Monitor",
                     "textStyle": {
-                      "color": "#173B63",
-                      "fontFamily": "Segoe UI",
-                      "fontSize": "30px"
-                    }
+                      "color": "#FFFFFF",
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "25px"
+                    },
+                    "value": "2"
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
+              },
+              {
+                "horizontalTextAlignment": "center",
+                "textRuns": [
+                  {
+                    "textStyle": {
+                      "color": "#FFFFFF",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "9px"
+                    },
+                    "value": "WARN"
+                  }
+                ]
               }
             ]
           }
@@ -43,7 +55,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EAF1FA'"
+                      "Value": "'#C98A2E'"
                     }
                   }
                 }
@@ -69,10 +81,28 @@
       "border": [
         {
           "properties": {
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C98A2E'"
+                    }
+                  }
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }
@@ -85,34 +115,35 @@
             "left": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "4D"
                 }
               }
             },
             "right": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "4D"
                 }
               }
             },
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "4D"
                 }
               }
             },
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "8D"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "visualType": "textbox"
   }
 }
