@@ -5,12 +5,15 @@ $ErrorActionPreference = "Stop"
 # LIVE POWER BI DAX KPI RECONCILIATION
 # ============================================================
 
-$root = "D:\analysis_projects\H.C_Data_Governance & Q.C_Center"
+param(
+    [string]$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path,
+    [string]$OutputRoot = (Join-Path (Split-Path (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path -Parent) "output")
+)
 
-$out = "D:\analysis_projects\output\H.C_Data_Governance & Q.C_Center_output.txt"
-
-$queryFile = "D:\analysis_projects\output\CP12G2B_Runtime_Query.dax"
-$csvFile   = "D:\analysis_projects\output\CP12G2B_Runtime_Result.csv"
+$root = $ProjectRoot
+$out = Join-Path $OutputRoot "H.C_Data_Governance & Q.C_Center_output.txt"
+$queryFile = Join-Path $OutputRoot "CP12G2B_Runtime_Query.dax"
+$csvFile   = Join-Path $OutputRoot "CP12G2B_Runtime_Result.csv"
 
 $pbipName = "HealthcareGovernanceQC.pbip"
 
@@ -494,7 +497,7 @@ Working tree:
 $(if ($gitStatus.Count -eq 0) { "CLEAN" } else { $gitStatus -join "`r`n" })
 
 NEXT:
-$(if ($overall -eq "PASS") { "CP12-G2C - Measure formatting and display folders" } else { "STOP - Review runtime KPI mismatch" })
+$(if ($overall -eq "PASS") { "Validation complete - review and retain the output as runtime evidence." } else { "STOP - Review runtime KPI mismatch" })
 "@ | Set-Content $out -Encoding UTF8
 
     # ----------------------------------------------------------

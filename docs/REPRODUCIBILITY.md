@@ -59,13 +59,11 @@ The `_Measures` table is intentionally empty/disconnected. Do not add a Date tab
 
 - SQL 03, 05, 06 and 08 are SELECT-only checks; inspect returned values against documented baselines.
 - CP9 Python recalculates core/DQ totals independently.
-- `CP12G2B_Runtime_KPI_Reconciliation.ps1` requires the matching open PBIP and DAX Studio CLI. It writes/removes temporary DAX/CSV files and writes an external report; review paths first.
-- `CP12C_PBIP_Audit.ps1` supplies historical inventory logic, not a complete current release gate.
-- **Do not run CP10_DataLineage.ps1 or CP11_BI_Consumption.ps1 as validators:** they modify SQL/files and stage/commit changes.
-- **Do not run CP12G3_Final_Semantic_Validation.ps1 unchanged:** its historical zero-visual assumption is obsolete.
+- `scripts/validation/Runtime_KPI_Reconciliation.ps1` requires the matching open PBIP and DAX Studio CLI. It is project/model read-only, writes temporary DAX/CSV files only to the configured external output directory, and does not stage or commit changes.
+- Historical mutating checkpoint orchestrators are intentionally excluded from the public portfolio. Reproduction should use the canonical `sql/` build definitions plus the retained validation/documentation evidence, rather than historical automation scripts.
 
 Validate JSON, bindings, navigation, canvas bounds and the 7-page/142-visual/10-table/12-measure/8-relationship contract. Runtime rendering still needs Desktop. Save/close and review Git changes before any commit; Desktop may serialize unrelated files.
 
 ## Publication boundary
 
-Publish only reviewed Git-tracked files. Exclude data, PDFs, caches, PBIX, database backups, personal credentials and certificates. Screenshots under `docs/screenshots/` are report evidence only. Historical scripts may contain workstation paths; adapt them deliberately rather than embedding private credentials. No whole-workspace ZIP is part of this release.
+Publish only reviewed Git-tracked files. Exclude data, PDFs, caches, PBIX, database backups, personal credentials and certificates. Screenshots under `docs/screenshots/` are report evidence only. The retained runtime validator uses configurable project/output paths and contains no embedded credentials. No whole-workspace ZIP is part of this release.

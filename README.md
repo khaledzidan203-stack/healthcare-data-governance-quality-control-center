@@ -120,7 +120,7 @@ This is not Microsoft schema certification. Static JSON validity alone does not 
 - `sql/`: governed build definitions and separate read-only validation queries.
 - `python/eda/`: independent weighted KPI reconciliation.
 - `powerbi/`: PBIP, report definition, semantic model and governed DAX reference.
-- `scripts/checkpoints/`: historical orchestration and retained validators; not a batch-run release pipeline.
+- `scripts/validation/`: retained read-only runtime validation utility. Historical mutating checkpoint orchestrators are intentionally excluded from the public portfolio.
 - `docs/`: contracts, lineage, governance evidence, reproducibility and screenshots.
 
 Raw CSV, source PDFs, database files and Power BI caches are excluded. The source dataset must be acquired separately.

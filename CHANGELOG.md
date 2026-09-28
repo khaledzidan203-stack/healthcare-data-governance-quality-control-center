@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2026-09-28 - Public repository cleanup
+
+- Removed obsolete historical checkpoint orchestration scripts from the public portfolio.
+- Retained the useful Power BI runtime KPI reconciliation utility under `scripts/validation/` and made its project/output paths configurable.
+- Updated README and reproducibility guidance to match the lean public repository layout.
+- Preserved SQL, Python, PBIP/PBIR/TMDL, DAX, screenshots, governance contracts, and validation evidence.
+
 ## 2026-09-28 - Portfolio release
 
 - Finalized seven-page PBIP portfolio documentation and seven original report screenshots.
