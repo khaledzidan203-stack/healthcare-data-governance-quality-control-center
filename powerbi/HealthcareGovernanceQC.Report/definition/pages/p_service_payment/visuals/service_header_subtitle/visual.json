@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "hdr_page_title",
+  "name": "service_header_subtitle",
   "position": {
-    "x": 250,
-    "y": 28,
-    "z": 10,
-    "height": 70,
-    "width": 1100,
-    "tabOrder": 0
+    "x": 209.15221362682965,
+    "y": 62.355939466383994,
+    "z": 11,
+    "height": 31.177969733191997,
+    "width": 1161.3793725614019,
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Service & Payment Patterns",
+                    "value": "Represented Line-Item Volume  •  Service Intensity  •  Rounded Medicare Payment",
                     "textStyle": {
-                      "color": "#173B63",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "30px"
+                      "fontSize": "12px",
+                      "color": "#ffffff"
                     }
                   }
                 ],
@@ -43,7 +43,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EAF1FA'"
+                      "Value": "'#173B63'"
                     }
                   }
                 }
