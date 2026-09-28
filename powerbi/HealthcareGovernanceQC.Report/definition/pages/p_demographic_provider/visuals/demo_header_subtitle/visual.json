@@ -1,33 +1,32 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "hdr_page_title",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "demo_header_subtitle",
   "position": {
-    "x": 250,
-    "y": 28,
-    "z": 10,
-    "height": 70,
-    "width": 1100,
-    "tabOrder": 0
+    "width": 1160,
+    "y": 76,
+    "z": 11,
+    "x": 210,
+    "tabOrder": 1,
+    "height": 25
   },
   "visual": {
-    "visualType": "textbox",
     "objects": {
       "general": [
         {
           "properties": {
             "paragraphs": [
               {
+                "horizontalTextAlignment": "center",
                 "textRuns": [
                   {
-                    "value": "Demographic & Provider Mix",
                     "textStyle": {
-                      "color": "#173B63",
+                      "color": "#FFFFFF",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "30px"
-                    }
+                      "fontSize": "12px"
+                    },
+                    "value": "Demographic Utilization  •  Provider Mix  •  Payment Exposure"
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
               }
             ]
           }
@@ -43,7 +42,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EAF1FA'"
+                      "Value": "'#173B63'"
                     }
                   }
                 }
@@ -113,6 +112,7 @@
           }
         }
       ]
-    }
+    },
+    "visualType": "textbox"
   }
 }
