@@ -1,5 +1,7 @@
 # Healthcare Data Governance & Quality Control Center
 
+[![Portfolio Validation](https://github.com/khaledzidan203-stack/healthcare-data-governance-quality-control-center/actions/workflows/portfolio-validation.yml/badge.svg)](https://github.com/khaledzidan203-stack/healthcare-data-governance-quality-control-center/actions/workflows/portfolio-validation.yml)
+
 ## Overview
 
 A production-style healthcare analytics and governance portfolio project by **Khaled Zidan**, built with SQL Server, Python and Power BI using the public **CMS 2010 BSA Carrier Line Items PUF**. The deliverable combines governed ingestion, traceable quality findings, an explicit semantic model and a seven-page analytical report.
@@ -7,6 +9,37 @@ A production-style healthcare analytics and governance portfolio project by **Kh
 ![Report navigation index](docs/screenshots/01-index.png)
 
 [Portfolio case study](docs/PORTFOLIO_CASE_STUDY.md) - [Release validation](docs/FINAL_RELEASE_VALIDATION.md) - [Reproduce the project](docs/REPRODUCIBILITY.md)
+
+## Quick Start
+
+### Portfolio review — no local setup required
+
+Recruiters and reviewers can evaluate the project directly from this README, the seven report screenshots, the [portfolio case study](docs/PORTFOLIO_CASE_STUDY.md), and the [release validation evidence](docs/FINAL_RELEASE_VALIDATION.md). No local database or Power BI installation is required just to review the work.
+
+### Run the full project locally — Windows
+
+Prerequisites: SQL Server reachable as `localhost`, Power BI Desktop with PBIP/PBIR/TMDL support, Python 3, Microsoft ODBC Driver 17 or 18 for SQL Server, and Microsoft `sqlcmd`.
+
+1. Clone this repository.
+2. Download the official **CMS 2010 BSA Carrier Line Items PUF** and place the CSV at:
+   `data/2010_BSA_Carrier_PUF.csv`
+3. From the repository root run:
+   ```powershell
+   .\scripts\setup\Initialize-Project.ps1
+   ```
+4. Open:
+   `powerbi/HealthcareGovernanceQC.pbip`
+
+The setup script verifies the governed source SHA-256, refuses to overwrite an existing `HealthcareGovernanceQC` database, patches the historical local CSV path only in a temporary SQL copy, runs SQL scripts 01–12 in order, creates the Python environment, and runs the independent Python reconciliation.
+
+To open Power BI automatically after a successful setup:
+
+```powershell
+.\scripts\setup\Initialize-Project.ps1 -OpenPowerBI
+```
+
+See [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for the manual procedure, prerequisites, safety boundaries, and troubleshooting.
+
 
 ## Business / Governance Problem
 

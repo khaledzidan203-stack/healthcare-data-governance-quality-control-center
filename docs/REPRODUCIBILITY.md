@@ -4,6 +4,28 @@
 
 Use Windows with SQL Server, SQL Server Management Studio or another SQL client, Power BI Desktop supporting PBIP/PBIR/TMDL, Python 3 with `pyodbc`, Microsoft ODBC Driver 17 or 18 for SQL Server, PowerShell and Git. DAX Studio CLI (`dscmd`) is optional for live semantic reconciliation. Versions are not fully pinned; validate compatibility in your environment.
 
+## Recommended one-command setup
+
+For a fresh local environment, first place the official 2010 CMS CSV at `data/2010_BSA_Carrier_PUF.csv`, then run from the repository root:
+
+```powershell
+.\scripts\setup\Initialize-Project.ps1
+```
+
+The setup script is deliberately fail-safe:
+
+- verifies the governed source SHA-256 before any database work;
+- requires SQL Server to be reachable as `localhost`;
+- refuses to continue if `HealthcareGovernanceQC` already exists, so it cannot silently overwrite an existing database;
+- changes the historical source-file path only in a temporary copy of SQL script 02;
+- executes the canonical SQL scripts 01–12 in order with `sqlcmd -b`;
+- validates core SQL totals after the build;
+- creates `.venv`, installs `requirements.txt`, and runs the independent Python reconciliation;
+- never modifies the committed PBIP/PBIR/TMDL/DAX artifacts.
+
+Use `-SkipPythonValidation` only when intentionally performing the SQL/Power BI setup without the independent Python pass. Use `-OpenPowerBI` to open the PBIP after a successful build.
+
+
 ## Acquire the source separately
 
 Use the official [CMS BSA Carrier Line Items PUF download page](https://www.cms.gov/data-research/statistics-trends-and-reports/basic-stand-alone-medicare-claims-public-use-files/bsa-carrier-line-items-puf), selecting the **2010** CSV and documentation. The [2010 General Documentation](https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/bsapufs/downloads/2010_carrier_gendoc.pdf) provides source context. CMS files are not bundled here.
@@ -18,7 +40,7 @@ Verify with `Get-FileHash -Algorithm SHA256`. Stop on a mismatch; do not silentl
 
 ## Database build order - new isolated database only
 
-Database name: `HealthcareGovernanceQC`. Historical scripts assume a local SQL Server and Windows integrated authentication. Review permissions and the hardcoded CSV path in `sql/02_load_raw_carrier.sql` before a new build; the SQL Server service must be able to read the source.
+Database name: `HealthcareGovernanceQC`. Historical scripts assume a local SQL Server and Windows integrated authentication. The canonical SQL 02 file retains the original governed workstation path as historical implementation evidence. The recommended setup script replaces that path only in a temporary execution copy. The SQL Server service must still be able to read the selected local CSV path.
 
 | Order | Script | Role |
 |---|---|---|

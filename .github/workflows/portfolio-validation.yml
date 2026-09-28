@@ -1,0 +1,57 @@
+name: Portfolio Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Static portfolio quality gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate repository contract
+        run: python python/validation/validate_repository.py
+
+      - name: Compile Python sources
+        run: |
+          python -m py_compile python/validation/validate_repository.py
+          python -m py_compile python/eda/cp9_python_validation.py
+
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $files = @(
+            "scripts/setup/Initialize-Project.ps1",
+            "scripts/validation/Runtime_KPI_Reconciliation.ps1"
+          )
+          foreach ($file in $files) {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile(
+              (Resolve-Path $file),
+              [ref]$tokens,
+              [ref]$errors
+            ) | Out-Null
+
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error "$file :: $($_.Message)" }
+              throw "PowerShell syntax validation failed: $file"
+            }
+
+            Write-Host "PASS | PowerShell syntax | $file"
+          }

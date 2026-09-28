@@ -1,0 +1,47 @@
+name: Publish v1.0.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/releases/v1.0.1.md"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Validate and publish v1.0.1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate repository before release
+        run: python python/validation/validate_repository.py
+
+      - name: Publish tag and GitHub Release if absent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git rev-parse "v1.0.1" >/dev/null 2>&1; then
+            echo "v1.0.1 already exists; no release mutation required."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git tag -a v1.0.1 -m "Healthcare Data Governance & Quality Control Center v1.0.1"
+          git push origin v1.0.1
+
+          gh release create v1.0.1 \
+            --title "Healthcare Data Governance & Quality Control Center v1.0.1" \
+            --notes-file docs/releases/v1.0.1.md

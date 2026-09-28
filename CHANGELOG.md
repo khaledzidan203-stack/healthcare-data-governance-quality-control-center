@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2026-09-28 - Repository completion & automation
+
+- Added recruiter-friendly Quick Start instructions to the README.
+- Added a fail-safe one-command Windows setup script for a fresh SQL/Python/Power BI environment.
+- Added a cross-platform static repository validator covering publication safety, Power BI JSON, report/page counts, semantic-model counts, screenshots, DAX reference counts, and relative Markdown links.
+- Added GitHub Actions portfolio validation for every push and pull request.
+- Added an automated, validation-gated v1.0.1 release workflow and release notes.
+- Preserved all validated SQL, Python, PBIP/PBIR/TMDL, DAX, governance contracts, and report screenshots.
+
 ## 2026-09-28 - Public repository cleanup
 
 - Removed obsolete historical checkpoint orchestration scripts from the public portfolio.
