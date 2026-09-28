@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 2026-09-28 - Portfolio release
+
+- Finalized seven-page PBIP portfolio documentation and seven original report screenshots.
+- Preserved 10 semantic tables, 12 governed measures and 8 relationships.
+- Rechecked static report/model contracts and SELECT-only SQL totals.
+- Added reproducibility, case study and release validation evidence.
+- Reconciled historical documentation/rate drift and hardened publication exclusions.
+- Preserved report/model/DAX/SQL implementations.
+
+## Completed CP13 page checkpoints
+
+| Page | Commit |
+|---|---|
+| INDEX | 20f0b04 |
+| Executive Overview | fd86882 |
+| Data Quality Overview | c8cbbfb |
+| Coding Quality | 8e72b6e |
+| Service & Payment Patterns | a92aae0 |
+| Demographic & Provider Mix | 20d561e |
+| Quality Issues Monitor | ecfd43f |
+
+Earlier entries below are historical checkpoint records.
+
 ## 2026-09-27 - CP1 Source Discovery
 
 - Source fingerprint validated.

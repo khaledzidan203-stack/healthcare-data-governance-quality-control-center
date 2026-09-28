@@ -1,4 +1,4 @@
-# DATA CONTRACT ? CMS 2010 BSA Carrier Line Items PUF
+# DATA CONTRACT - CMS 2010 BSA Carrier Line Items PUF
 
 ## Dataset
 
@@ -12,18 +12,18 @@ across the ten analytical attributes.
 `CAR_LINE_CNT` represents the number of underlying carrier line items
 associated with that profile.
 
-Status: PROVISIONAL ? exact relational uniqueness will be revalidated later.
+Status: VALIDATED in the retained SQL grain checks: 2,801,660 unique profiles; no duplicate profiles.
 
 ## Columns
 
 | Column | Business Meaning | Role | Governed Notes |
 |---|---|---|---|
 | BENE_SEX_IDENT_CD | Beneficiary sex | Categorical code | CMS documented values: 1=Male, 2=Female |
-| BENE_AGE_CAT_CD | Beneficiary age category | Categorical code | Six CMS categories coded 1?6 |
+| BENE_AGE_CAT_CD | Beneficiary age category | Categorical code | Six CMS categories coded 1-6 |
 | CAR_LINE_ICD9_DGNS_CD | ICD-9-CM diagnosis classification | Clinical code | Coarsened for privacy; blanks exist and must be preserved pending investigation |
 | CAR_LINE_HCPCS_CD | HCPCS procedure/service code | Reference code | CMS documented 4,900 observed values |
 | CAR_LINE_BETOS_CD | BETOS service classification | Reference code | CMS documented 98 observed values |
-| CAR_LINE_SRVC_CNT | Count of services associated with profile/line-item attributes | Numeric measure | Actual source range includes 0?999; source documentation contains a range inconsistency |
+| CAR_LINE_SRVC_CNT | Count of services associated with profile/line-item attributes | Numeric measure | Actual source range includes 0-999; source documentation contains a range inconsistency |
 | CAR_LINE_PRVDR_TYPE_CD | Provider type code | Reference code | CMS documented 6 observed values |
 | CAR_LINE_CMS_TYPE_SRVC_CD | CMS type-of-service code | Reference code | CMS documented 20 observed values |
 | CAR_LINE_PLACE_OF_SRVC_CD | Place-of-service code | Reference code | CMS documented 28 observed values |
@@ -48,3 +48,13 @@ Status: PROVISIONAL ? exact relational uniqueness will be revalidated later.
 4. Service-count documented range conflicts with observed zero values.
 
 These remain recorded as `SOURCE_CONFLICT`.
+
+## Explicit source conflicts retained at release
+
+| Domain | General Documentation | Data Dictionary | Governed observation |
+|---|---:|---:|---|
+| ICD-9 | 926 | 923 | 926 dimension members: 925 nonblank + one blank |
+| HCPCS | 4900 | 4736 | 4900 dimension members |
+| BETOS | 98 | 98 | 98 members |
+
+Service Count is documented as 1-999 but includes observed zeros. The age-code-6 typo and recorded CAR_LINE_CNT documentation discrepancy remain historical source findings. These values are not silently reconciled. The 19-rule snapshot contains one SOURCE_CONFLICT rule, not one total documentation disagreement. [Source acquisition and fingerprint](REPRODUCIBILITY.md).

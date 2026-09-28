@@ -12,3 +12,13 @@ __pycache__/
 **/.pbi/cache.abf
 **/.pbi/localSettings.json
 **/*.abf
+
+# Release safety: local binaries, backups, credentials and archives
+*.pbix
+*.abf
+*.bak
+*.mdf
+*.ldf
+.env
+.env.*
+*.zip

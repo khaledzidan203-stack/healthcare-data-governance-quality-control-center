@@ -52,3 +52,7 @@ associated with that profile.
 - Service-count documented range differs from observed zero values.
 
 These remain `SOURCE_CONFLICT` until resolved or formally documented.
+
+## Current release clarification
+
+This is the source-field dictionary; the final semantic model is described separately in the [semantic contract](POWER_BI_SEMANTIC_MODEL_CONTRACT.md). Exact preserved documentation conflicts are ICD-9 926 vs 923 and HCPCS 4900 vs 4736; actual ICD members are 925 nonblank plus one blank, and BETOS remains 98. Observed zero-service profiles are 22, representing 59 lines. [Data contract](DATA_CONTRACT.md).

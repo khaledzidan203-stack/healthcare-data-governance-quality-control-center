@@ -41,9 +41,9 @@ Executive / premium / clean / low-clutter / high-readability
 ### Semantic Colors
 - Structure / Header / Navigation: #173B63
 - Comparative / Benchmark:         #506CF0
-- Positive / Clean / Stable:       #1E9E96
-- Watch / Caution:                 #C98A2E
-- Issue / Risk / Bad Quality:      #D45757
+- Utilization / Positive-Neutral:       #1E9E96
+- Payment / Watch Context:                 #C98A2E
+- Issue / Risk / Bad Quality:      #C65D5D
 - Dark Neutral Highlight:          #3C4B63
 
 ## KPI Color Rules
@@ -56,19 +56,13 @@ Executive / premium / clean / low-clutter / high-readability
 ## Chart Color Rules
 Use color by analytical meaning, not random color.
 
-### Good-high metrics
-higher is better:
-- teal dominant scale
+### Metric meaning
 
-### Bad-high metrics
-higher is worse:
-- amber to red scale
-
-### Benchmark / comparison metrics
-- indigo dominant scale
-
-### composition / mix visuals
-- neutral palette with 1 semantic highlight
+- Volume/comparison: indigo.
+- Utilization: teal, without asserting that higher is better.
+- Payment/watch context: amber, without asserting overpayment or severity.
+- Actual DQ exception populations: red.
+- Gradients encode magnitude, not unsupported thresholds.
 
 ## Table Formatting Rules
 - allow arrows only when a true directional comparison exists
@@ -111,3 +105,7 @@ Use visuals only when they answer a real question:
 3. executive overview
 4. remaining analytical pages one by one
 5. validation and refinement
+
+## Final implementation interpretation
+
+The approved PBIR is the authority for actual colors/layout. Indigo communicates volume/comparison, teal utilization, amber financial/payment or watch context, and DQ red actual exceptions. Gradients communicate magnitude only; no invented severity thresholds or generic good/bad business judgments. The build sequence below/above is historical and is complete. No page was redesigned for release.

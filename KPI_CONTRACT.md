@@ -1,10 +1,10 @@
-﻿# KPI & METRIC CONTRACT
+# KPI & METRIC CONTRACT
 
 ## Governed Population
 
 Source:
 
-nalytics.FactCarrierProfile
+analytics.FactCarrierProfile
 
 Grain:
 
@@ -45,10 +45,10 @@ Reference year:
 - Average Rounded Payment / Line: 54.858461
 - Blank ICD Profiles: 502
 - Blank ICD Represented Lines: 13506
-- Blank ICD Line Rate: 0.00019200
+- Blank ICD Line Rate: 0.00019279855293451574
 - Zero-Service Profiles: 22
 - Zero-Service Represented Lines: 59
-- Zero-Service Line Rate: 0.00000000
+- Zero-Service Line Rate: 0.00000084222676019076182
 
 ## Analytical Guardrails
 
@@ -61,3 +61,7 @@ Reference year:
 - No date field exists in the governed analytical source beyond the 2010 reference year.
 - Therefore YoY, MoM, monthly trends and fabricated date analysis are OUT OF SCOPE.
 - Codes such as HCPCS, BETOS, provider type and place of service are dimensions, not numeric measures.
+
+## Release reconciliation - 2026-09-28
+
+Rates above are decimal ratios. Their percentage equivalents are approximately **0.019279855293451574%** and **0.00008422267601907618%**. Older CP8 documentation printed 0.00019200 and 0.00000000; these are superseded by the retained CP12 runtime evidence, not by a DAX change. Counts were freshly reconfirmed by SELECT during release. See [final validation](docs/FINAL_RELEASE_VALIDATION.md).

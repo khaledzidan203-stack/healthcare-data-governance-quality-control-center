@@ -1,5 +1,7 @@
 # CP12-G3 — Final Semantic Model Closeout
 
+> HISTORICAL CHECKPOINT - retained as evidence of that phase. For current state see [final release validation](../FINAL_RELEASE_VALIDATION.md).
+
 ## Status
 
 **COMPLETED**

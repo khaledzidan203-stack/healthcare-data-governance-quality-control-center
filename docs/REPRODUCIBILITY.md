@@ -1,0 +1,71 @@
+# Reproducibility
+
+## Prerequisites
+
+Use Windows with SQL Server, SQL Server Management Studio or another SQL client, Power BI Desktop supporting PBIP/PBIR/TMDL, Python 3 with `pyodbc`, Microsoft ODBC Driver 17 or 18 for SQL Server, PowerShell and Git. DAX Studio CLI (`dscmd`) is optional for live semantic reconciliation. Versions are not fully pinned; validate compatibility in your environment.
+
+## Acquire the source separately
+
+Use the official [CMS BSA Carrier Line Items PUF download page](https://www.cms.gov/data-research/statistics-trends-and-reports/basic-stand-alone-medicare-claims-public-use-files/bsa-carrier-line-items-puf), selecting the **2010** CSV and documentation. The [2010 General Documentation](https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/bsapufs/downloads/2010_carrier_gendoc.pdf) provides source context. CMS files are not bundled here.
+
+Place the extracted project source at `data/2010_BSA_Carrier_PUF.csv`. Expected SHA-256 from the governed ingestion evidence:
+
+```text
+923810243278103455c9408fedcf9981a1234f4f9f216902a877977bfc02e7f6
+```
+
+Verify with `Get-FileHash -Algorithm SHA256`. Stop on a mismatch; do not silently substitute a different year/export. Preserve original values and documentation conflicts. Source grain in this project is one published analytical profile weighted by `CAR_LINE_CNT`.
+
+## Database build order - new isolated database only
+
+Database name: `HealthcareGovernanceQC`. Historical scripts assume a local SQL Server and Windows integrated authentication. Review permissions and the hardcoded CSV path in `sql/02_load_raw_carrier.sql` before a new build; the SQL Server service must be able to read the source.
+
+| Order | Script | Role |
+|---|---|---|
+| 01 | `sql/01_create_database_foundation.sql` | Database and schemas |
+| 02 | `sql/02_load_raw_carrier.sql` | RAW ingestion and load governance |
+| 03 | `sql/03_validate_raw_grain.sql` | Read-only RAW grain check |
+| 04 | `sql/04_build_staging_carrier.sql` | Typed staging and DQ flags |
+| 05 | `sql/05_validate_staging.sql` | Read-only layer reconciliation |
+| 06 | `sql/06_reference_data_assessment.sql` | Read-only reference assessment |
+| 07 | `sql/07_build_canonical_analytical_model.sql` | Dimensions and fact |
+| 08 | `sql/08_validate_canonical_model.sql` | Read-only model/FK checks |
+| 09 | `sql/09_create_kpi_baseline.sql` | Governed KPI view |
+| 10 | `sql/10_build_data_lineage.sql` | Lineage registry |
+| 11 | `sql/11_create_bi_consumption_contract.sql` | BI consumption views |
+| 12 | `sql/12_create_powerbi_semantic_foundation.sql` | Power BI fact view |
+
+Build scripts contain DDL/DML and some replace existing data. This order documents reproduction; it is not permission to rerun them against an existing validated database. The release did not execute these builders.
+
+## Python environment
+
+From the repository root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe python/eda/cp9_python_validation.py
+```
+
+The script performs a SELECT against `analytics.FactCarrierProfile` and prints independent weighted totals. Compare output to [KPI_CONTRACT.md](../KPI_CONTRACT.md); it does not implement a full assertion harness. Demographic checks assume the original surrogate-key mapping; verify dimensions if rebuilding. No credentials are embedded: the connection uses Windows trusted authentication. `TrustServerCertificate` is a local development setting, not a deployment security recommendation.
+
+## Power BI
+
+Open `powerbi/HealthcareGovernanceQC.pbip`. Its relative report-to-model reference must remain intact. Nine imported objects use `Sql.Database("localhost", "HealthcareGovernanceQC")`. Configure the corresponding local instance/Windows credentials or intentionally adapt connection settings in your own copy. Refresh only after SQL validation. Do not rely on excluded `.pbi/cache.abf` for reproducibility.
+
+The `_Measures` table is intentionally empty/disconnected. Do not add a Date table, change governed DAX or reconstruct identities. Age sorting and label columns are already present. Opening page is INDEX; Ctrl+Click navigation is used in Desktop editing mode.
+
+## Safe validation entrypoints
+
+- SQL 03, 05, 06 and 08 are SELECT-only checks; inspect returned values against documented baselines.
+- CP9 Python recalculates core/DQ totals independently.
+- `CP12G2B_Runtime_KPI_Reconciliation.ps1` requires the matching open PBIP and DAX Studio CLI. It writes/removes temporary DAX/CSV files and writes an external report; review paths first.
+- `CP12C_PBIP_Audit.ps1` supplies historical inventory logic, not a complete current release gate.
+- **Do not run CP10_DataLineage.ps1 or CP11_BI_Consumption.ps1 as validators:** they modify SQL/files and stage/commit changes.
+- **Do not run CP12G3_Final_Semantic_Validation.ps1 unchanged:** its historical zero-visual assumption is obsolete.
+
+Validate JSON, bindings, navigation, canvas bounds and the 7-page/142-visual/10-table/12-measure/8-relationship contract. Runtime rendering still needs Desktop. Save/close and review Git changes before any commit; Desktop may serialize unrelated files.
+
+## Publication boundary
+
+Publish only reviewed Git-tracked files. Exclude data, PDFs, caches, PBIX, database backups, personal credentials and certificates. Screenshots under `docs/screenshots/` are report evidence only. Historical scripts may contain workstation paths; adapt them deliberately rather than embedding private credentials. No whole-workspace ZIP is part of this release.

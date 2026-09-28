@@ -1,8 +1,8 @@
-﻿# POWER BI SEMANTIC MODEL CONTRACT
+# POWER BI SEMANTIC MODEL CONTRACT
 
 ## Status
 
-READY FOR PBIP CREATION
+IMPLEMENTED - final seven-page report and 10-table semantic model
 
 ## Storage Mode
 
@@ -80,7 +80,7 @@ DimPlaceOfService[PlaceOfServiceKey]
 
 ## Measure Host
 
-Create a dedicated table:
+Implemented dedicated table:
 
 _Measures
 
@@ -167,3 +167,9 @@ Before building analytical report pages:
 3. Validate them against SQL baseline.
 4. Validate them independently with DAX Studio.
 5. Only then proceed to report visuals.
+
+## Final implementation and evidence
+
+Current model: 10 tables, 8 relationships, 12 measures on `_Measures`, no business rows/relationships on the measure host. All tables use Import. Time intelligence is disabled (`__PBI_TimeIntelligenceEnabled = 0`). Existing Desktop-authored `AgeCategoryLabel` sorting uses `SortOrder`; three calculated display columns provide provider/service/place labels with code fallbacks.
+
+The preceding "before building" sequence is the historical build gate and has already been completed. Individual pages passed Desktop review before their checkpoint commits. [Final release validation](FINAL_RELEASE_VALIDATION.md) distinguishes fresh static/SQL checks from retained runtime evidence. Label implementations are retained; this release is not a new exhaustive label provenance audit.

@@ -1,5 +1,7 @@
 # CP1 - Source Discovery
 
+> HISTORICAL CHECKPOINT - retained as evidence of that phase. For current state see [final release validation](FINAL_RELEASE_VALIDATION.md).
+
 ## Validated Baseline
 
 - Physical CSV rows: 2,801,660

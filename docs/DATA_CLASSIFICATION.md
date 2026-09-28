@@ -2,7 +2,7 @@
 
 ## Dataset Classification
 
-**PUBLIC ? DE-IDENTIFIED HEALTHCARE DATA**
+**PUBLIC - DE-IDENTIFIED HEALTHCARE DATA**
 
 ## Approved Use
 

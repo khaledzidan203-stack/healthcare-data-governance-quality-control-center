@@ -20,7 +20,7 @@ Dimensions used:
 | DQ-003 | Completeness | CAR_LINE_ICD9_DGNS_CD | Measure and report blanks; do not delete automatically | Observed baseline only | Warning | Investigate and classify | Data Steward | ACTIVE |
 | DQ-004 | Validity | BENE_SEX_IDENT_CD | Allowed codes must be 1 or 2 | 100% valid | High | Quarantine invalid rows | Data Steward | ACTIVE |
 | DQ-005 | Validity | BENE_AGE_CAT_CD | Allowed codes must be 1 through 6 | 100% valid | High | Quarantine invalid rows | Data Steward | ACTIVE |
-| DQ-006 | Validity | CAR_LINE_SRVC_CNT | Must be numeric integer and within observed/documented supported range | Review 0?999 | High | Flag exceptions; do not silently fix | Data Steward | ACTIVE |
+| DQ-006 | Validity | CAR_LINE_SRVC_CNT | Must be numeric integer and within observed/documented supported range | Review 0-999 | High | Flag exceptions; do not silently fix | Data Steward | ACTIVE |
 | DQ-007 | Validity | CAR_LINE_CNT | Must be positive integer | > 0 | Critical | Stop affected load | Data Engineer | ACTIVE |
 | DQ-008 | Validity | CAR_HCPS_PMT_AMT | Must conform to CMS payment rounding pattern | 100% conforming | High | Flag exceptions | Data Steward | ACTIVE |
 | DQ-009 | Uniqueness | Profile grain | Ten analytical attributes should form unique physical profiles | 0 duplicates | Critical | Stop canonical load and investigate | Data Engineer | ACTIVE |
@@ -37,15 +37,21 @@ Dimensions used:
 
 ## Status Definitions
 
-- PASS ? rule satisfied
-- WARN ? issue requires review but does not automatically block processing
-- FAIL ? blocking control failed
-- SOURCE_CONFLICT ? source documentation and observed data disagree
-- NOT_APPLICABLE ? rule does not apply
-- NOT_VERIFIED ? evidence is insufficient
+- PASS - rule satisfied
+- WARN - issue requires review but does not automatically block processing
+- FAIL - blocking control failed
+- SOURCE_CONFLICT - source documentation and observed data disagree
+- NOT_APPLICABLE - rule does not apply
+- NOT_VERIFIED - evidence is insufficient
 
 ## Governance Rule
 
 Do not invent thresholds when the source or approved business contract does not support one.
 
 Do not delete, impute or normalize anomalous values before their meaning is understood and documented.
+
+## Release interpretation
+
+The 19-rule framework and historical statuses are preserved. DQ-011's expected 4,900 reflects the observed/General Documentation count; the Data Dictionary's 4,736 is a separate preserved source discrepancy. DQ-016 preserves ICD-9 926 vs 923. Do not silently rewrite the historical rule outcomes to manufacture a new execution.
+
+Global snapshot: 19 rules, 16 PASS, 2 WARN, 1 SOURCE_CONFLICT, 0 FAIL. It remains static; slicers affect analytical issue measures only. [Execution evidence](DQ_EXECUTION_RESULTS.md) - [Final release validation](FINAL_RELEASE_VALIDATION.md).

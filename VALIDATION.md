@@ -1,4 +1,9 @@
-﻿# VALIDATION
+# VALIDATION
+
+## Current release evidence
+
+See [FINAL_RELEASE_VALIDATION.md](docs/FINAL_RELEASE_VALIDATION.md) for fresh static and read-only SQL checks, the 7-page/142-visual baseline, and retained runtime evidence. Earlier sections below are HISTORICAL CHECKPOINT results, not unexecuted work.
+
 
 ## CP5 - Governed SQL Foundation
 

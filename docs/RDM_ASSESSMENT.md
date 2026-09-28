@@ -1,4 +1,4 @@
-﻿# REFERENCE DATA / RDM ASSESSMENT
+# REFERENCE DATA / RDM ASSESSMENT
 
 ## Decision
 
@@ -38,3 +38,7 @@ MDM: NOT APPLICABLE AT CURRENT SCOPE
 
 Reference structures will be implemented in the analytical model
 only where they improve interpretation and maintain source lineage.
+
+## Release clarification
+
+The future-tense reference implementation decision above is historical. Eight dimensions are now implemented; the blank-source ICD dimension member is preserved without representing a valid clinical code. See [final release validation](FINAL_RELEASE_VALIDATION.md).

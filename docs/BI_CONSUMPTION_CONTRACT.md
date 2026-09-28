@@ -1,4 +1,4 @@
-﻿# BI CONSUMPTION CONTRACT
+# BI CONSUMPTION CONTRACT
 
 ## Status
 
@@ -197,3 +197,7 @@ approved governance-control process.
 - Unexpected ICD null rows: 0
 - Blank ICD population preserved: 502
 - Zero-service population preserved: 22
+
+## Release clarification
+
+The codes-only description applies to the SQL consumption contract. The final Power BI semantic layer also contains provider, service and place-of-service calculated labels. SQL logic was not changed for release. See [final release validation](FINAL_RELEASE_VALIDATION.md).

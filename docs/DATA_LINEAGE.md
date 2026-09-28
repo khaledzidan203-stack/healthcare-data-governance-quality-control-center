@@ -1,4 +1,4 @@
-﻿# DATA LINEAGE
+# DATA LINEAGE
 
 ## Status
 
@@ -58,3 +58,7 @@ Fully source-traceable KPI contracts:
 - Source SHA-256 is retained as lineage evidence.
 - Blank ICD values are governed, not silently discarded.
 - Zero service-count conditions are governed, not silently discarded.
+
+## Release clarification
+
+The retained 68-edge registry covers source through governed KPI baseline. Current model/report bindings were statically checked at release; a complete persisted registry for every display label/visual is not claimed. See [final release validation](FINAL_RELEASE_VALIDATION.md).

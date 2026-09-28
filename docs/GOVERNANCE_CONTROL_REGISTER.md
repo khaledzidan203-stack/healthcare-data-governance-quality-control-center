@@ -11,7 +11,7 @@ Healthcare Data Governance & Quality Control Center
 | GOV-01 | Purpose / Decision | Defined | Build a governed, quality-controlled healthcare analytics environment using CMS public-use data | PASS |
 | GOV-02 | Source Authority | Defined | CMS is the authoritative external publisher of the source dataset | PASS |
 | GOV-03 | Approved Use | Defined | Governance, Data Quality, analytics engineering, BI and public portfolio demonstration | PASS |
-| GOV-04 | Classification | Defined | PUBLIC ? DE-IDENTIFIED HEALTHCARE DATA | PASS |
+| GOV-04 | Classification | Defined | PUBLIC - DE-IDENTIFIED HEALTHCARE DATA | PASS |
 | GOV-05 | Privacy Scope | Defined | No re-identification, Patient 360, claim reconstruction or unsupported linkage | PASS |
 | GOV-06 | Access / IAM | Formal project IAM not required yet for local public-data development | Reassess if deployment, shared environments or restricted sources are introduced | OPEN |
 | GOV-07 | Lifecycle / Retention | Not yet formally defined | Raw source retention, generated evidence retention and destruction policy still required | OPEN |
@@ -39,3 +39,7 @@ before they become relevant to implementation or release.
 - Classification and privacy rules must survive downstream transformations.
 - Reference and master data controls must be evidence-driven.
 - All material transformations must later have lineage evidence.
+
+## Release clarification
+
+The original control table is a HISTORICAL CHECKPOINT. Later lineage, RDM and DQ implementation evidence exists in the repository, but OPEN retention/security/deployment controls are not automatically closed. This local public-data portfolio release excludes raw data/caches and makes no regulatory certification claim. Shared deployment requires a separate control review. See [final release validation](FINAL_RELEASE_VALIDATION.md).

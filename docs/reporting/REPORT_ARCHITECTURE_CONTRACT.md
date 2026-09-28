@@ -3,7 +3,7 @@
 Healthcare Data Governance & Quality Control Center
 
 ## Status
-APPROVED FOR BUILD
+IMPLEMENTED - seven pages, 142 visuals, INDEX opening page
 
 ## Report Goal
 Build an executive-grade Power BI report that presents healthcare data governance and data quality insights in a simple, visual, non-technical, storytelling-oriented structure.
@@ -62,7 +62,7 @@ Purpose:
 ### 07. Quality Issues Monitor
 Purpose:
 - action-oriented page
-- show highest-priority issue slices
+- show affected issue slices without invented severity thresholds
 - help focus review effort
 
 ## Visual Density Rule
@@ -100,3 +100,7 @@ Allowed:
 
 ## Storytelling Rule
 Every page must communicate one primary message only.
+
+## Release baseline
+
+Page visual counts in order: INDEX 14; Executive 18; Data Quality 26; Coding 23; Service/Payment 19; Demographic/Provider 18; Monitor 24. Total 142, with 24 slicers and 12 valid navigation buttons. The Quality Issues Monitor combines static global rule status with filterable issue metrics; "priority" does not imply invented severity scoring. All earlier build instructions describe the accepted architecture, not unfinished work.
