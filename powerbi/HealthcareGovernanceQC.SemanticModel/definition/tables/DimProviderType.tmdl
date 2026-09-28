@@ -19,6 +19,23 @@ table DimProviderType
 
 		annotation SummarizationSetBy = Automatic
 
+	column ProviderTypeLabel =
+			
+			SWITCH (
+			    DimProviderType[ProviderTypeCode],
+			    "0", "Clinics / Groups / Associations",
+			    "1", "Solo Physicians / Suppliers",
+			    "3", "Institutional Provider",
+			    "5", "Multi-Specialty Clinics",
+			    "7", "Other Entities",
+			    "8", "EI-Coded / Proprietorship Entities",
+			    "Code " & DimProviderType[ProviderTypeCode]
+			)
+		lineageTag: 5cef3e2a-12c4-4642-bbd8-91ed91d6a2d3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimProviderType = m
 		mode: import
 		source =

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "hdr_index_button",
+  "name": "exec_index_button",
   "position": {
-    "width": 160,
+    "width": 150,
     "y": 38,
-    "z": 20,
-    "x": 1380,
-    "tabOrder": 1,
-    "height": 48
+    "z": 100,
+    "x": 1390,
+    "tabOrder": 2,
+    "height": 50
   },
   "visual": {
     "drillFilterOtherVisuals": true,
@@ -19,27 +19,6 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            }
-          }
-        },
-        {
-          "selector": {
-            "id": "default"
-          },
-          "properties": {
-            "placement": {
-              "expr": {
-                "Literal": {
-                  "Value": "'left'"
-                }
-              }
-            },
-            "shapeType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'blank'"
                 }
               }
             }
@@ -69,20 +48,6 @@
                 }
               }
             },
-            "tileShape": {
-              "expr": {
-                "Literal": {
-                  "Value": "'rectangleRounded'"
-                }
-              }
-            }
-          }
-        },
-        {
-          "selector": {
-            "id": "default"
-          },
-          "properties": {
             "tileShape": {
               "expr": {
                 "Literal": {
@@ -167,7 +132,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#173B63'"
+                      "Value": "'#506CF0'"
                     }
                   }
                 }
@@ -185,7 +150,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#506CF0'"
+                      "Value": "'#173B63'"
                     }
                   }
                 }
@@ -258,6 +223,5 @@
       ]
     },
     "visualType": "actionButton"
-  },
-  "howCreated": "InsertVisualButton"
+  }
 }

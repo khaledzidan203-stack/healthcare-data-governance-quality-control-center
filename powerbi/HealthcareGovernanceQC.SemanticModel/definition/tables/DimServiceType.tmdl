@@ -19,6 +19,37 @@ table DimServiceType
 
 		annotation SummarizationSetBy = Automatic
 
+	column ServiceTypeLabel =
+			
+			SWITCH (
+			    DimServiceType[ServiceTypeCode],
+			    "0", "Whole Blood Only",
+			    "1", "Medical Care",
+			    "2", "Surgery",
+			    "3", "Consultation",
+			    "4", "Diagnostic Radiology",
+			    "5", "Diagnostic Laboratory",
+			    "6", "Therapeutic Radiology",
+			    "7", "Anesthesia",
+			    "8", "Assistant at Surgery",
+			    "9", "Other Medical Items / Services",
+			    "D", "Ambulance",
+			    "F", "Ambulatory Surgical Center",
+			    "G", "Immunosuppressive Drugs",
+			    "K", "Hearing Items / Services",
+			    "N", "Kidney Donor",
+			    "P", "DME / Prosthetics / Orthotics",
+			    "Q", "Vision Items / Services",
+			    "S", "Surgical Dressings / Supplies",
+			    "T", "Outpatient Mental Health Limitation",
+			    "V", "Pneumococcal / Flu Vaccine",
+			    "Code " & DimServiceType[ServiceTypeCode]
+			)
+		lineageTag: 074c70e7-6cf1-42ca-955b-1fa0a16a3b06
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DimServiceType = m
 		mode: import
 		source =

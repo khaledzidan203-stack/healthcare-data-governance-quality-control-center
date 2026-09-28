@@ -25,6 +25,9 @@ table DimAgeCategory
 		lineageTag: 9acd033c-d967-4127-a257-731a68771588
 		summarizeBy: none
 		sourceColumn: AgeCategoryLabel
+		sortByColumn: SortOrder
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

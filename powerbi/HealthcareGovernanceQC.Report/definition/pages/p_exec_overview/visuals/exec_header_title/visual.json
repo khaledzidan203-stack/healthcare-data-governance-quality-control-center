@@ -1,33 +1,32 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "hdr_page_title",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "exec_header_title",
   "position": {
-    "x": 250,
+    "width": 1160,
     "y": 28,
     "z": 10,
-    "height": 70,
-    "width": 1100,
-    "tabOrder": 0
+    "x": 210,
+    "tabOrder": 0,
+    "height": 50
   },
   "visual": {
-    "visualType": "textbox",
     "objects": {
       "general": [
         {
           "properties": {
             "paragraphs": [
               {
+                "horizontalTextAlignment": "center",
                 "textRuns": [
                   {
-                    "value": "Executive Overview",
                     "textStyle": {
-                      "color": "#173B63",
+                      "color": "#FFFFFF",
                       "fontFamily": "Segoe UI",
-                      "fontSize": "30px"
-                    }
+                      "fontSize": "28px"
+                    },
+                    "value": "Executive Overview"
                   }
-                ],
-                "horizontalTextAlignment": "center"
+                ]
               }
             ]
           }
@@ -43,7 +42,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EAF1FA'"
+                      "Value": "'#173B63'"
                     }
                   }
                 }
@@ -113,6 +112,7 @@
           }
         }
       ]
-    }
+    },
+    "visualType": "textbox"
   }
 }
