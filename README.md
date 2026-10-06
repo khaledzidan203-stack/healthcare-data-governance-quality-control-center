@@ -8,7 +8,9 @@ The project preserves source identity, analytical grain, weighted KPI definition
 
 > **Scope:** public, de-identified historical healthcare data. The project does not reconstruct patients or claims, does not claim national expenditure estimates, and does not assert HIPAA or regulatory certification.
 
-![Report navigation index](docs/screenshots/01-index.png)
+![Healthcare Data Governance & Quality Control Center](docs/assets/Healthcare%20Data%20Governance%20Dashboard.png)
+
+> **Visual note:** the hero above is a presentation summary, not a Power BI screenshot or validation artifact. Governed metrics, contracts, preserved report screenshots and release-validation evidence below are authoritative.
 
 [Technical walkthrough](docs/TECHNICAL_WALKTHROUGH.md) · [Case study](docs/PORTFOLIO_CASE_STUDY.md) · [Release validation](docs/FINAL_RELEASE_VALIDATION.md) · [Reproducibility](docs/REPRODUCIBILITY.md)
 
@@ -140,6 +142,9 @@ The report contains **142 visuals and 24 slicers** on 1600 × 900 canvases. Ever
 ## Screenshots
 
 The published captures are preserved report evidence; they are not a new runtime test.
+
+### INDEX
+![Report navigation index](docs/screenshots/01-index.png)
 
 ### Executive Overview
 ![Executive Overview](docs/screenshots/02-executive-overview.png)
