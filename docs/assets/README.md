@@ -6,8 +6,8 @@ These assets do not change the validated SQL, Python, Power BI, DAX, TMDL, PBIR,
 
 ## Hero image
 
-Upload the project hero image here using this exact filename:
+Current project hero:
 
-`healthcare-data-governance-quality-control-center-hero.png`
+`Healthcare Data Governance Dashboard.png`
 
-The repository README will reference this file after the image is uploaded and verified.
+The hero is a presentation visual, not a Power BI report screenshot or validation artifact. The governed metrics, contracts, preserved report screenshots and release-validation evidence remain the authoritative project record.
