@@ -64,7 +64,7 @@ flowchart LR
 
 **One source row = one unique published analytical profile.** It is not one patient, beneficiary, claim or individual claim line.
 
-`LineItemCount` / `CAR_LINE_CNT` is the number of carrier line items represented by that profile. Service units and rounded payment must therefore be weighted by this count. fileciteturn81file0L2-L2
+`LineItemCount` / `CAR_LINE_CNT` is the number of carrier line items represented by that profile. Service units and rounded payment must therefore be weighted by this count.
 
 ## Validated Outcomes
 
